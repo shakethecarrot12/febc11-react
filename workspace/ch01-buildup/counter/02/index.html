@@ -6,10 +6,10 @@
   <title>Counter</title>
 </head>
 <body>
-  <!--
+  <!-- 
   <div id="app">
     <header>
-      <h1>Counter - HTML + JS</h1>
+      <h1>Counter - JS로 UI 구성</h1>
       <p>파일 경로: <span id="filepath"></span></p>
     </header>
     <div id="counter">
@@ -23,8 +23,9 @@
 
   <div id="root"></div>
 
-  <script type="text/javascript">
 
+
+  <script type="text/javascript">
     // <h1>Counter - JS로 UI 구성</h1>
     const h1 = document.createElement('h1');
     const h1Txt = document.createTextNode('Counter - JS로 UI 구성');
@@ -32,11 +33,11 @@
 
     // <p>파일 경로: <span id="filepath"></span></p>
     const p = document.createElement('p');
-    const pTxt = document.createTextNode('파일경로: ');
-    const filepath = document.createElement('span');
-    filepath.setAttribute('id', 'filepath');
+    const pTxt = document.createTextNode('파일 경로: ');
+    const filePath = document.createElement('span');
+    filePath.setAttribute('id', 'filepath');
     p.appendChild(pTxt);
-    p.appendChild(filepath);
+    p.appendChild(filePath);
 
     // <button type="button" onclick="handleDown()">-</button>
     const downBtn = document.createElement('button');
@@ -49,7 +50,7 @@
     const resetBtn = document.createElement('button');
     const resetBtnTxt = document.createTextNode('0');
     resetBtn.setAttribute('type', 'button');
-    resetBtn.setAttribute('onclick', 'handleReset()');
+    resetBtn.setAttribute('onclick', 'handleReset(event)');
     resetBtn.appendChild(resetBtnTxt);
 
     // <button type="button" onclick="handleUp()">+</button>
@@ -63,7 +64,6 @@
     const span = document.createElement('span');
     const spanTxt = document.createTextNode(0);
     span.appendChild(spanTxt);
-    
 
     // <header>
     const Header = document.createElement('header');
@@ -86,13 +86,13 @@
 
     document.getElementById('root').appendChild(App);
 
-</script>
+  </script>
 
-<script type="text/javascript">
-  document.querySelector('#filepath').textContent = `ch${document.URL.split('/ch')[1]}index.html`;
-</script>
+  <script type="text/javascript">
+    document.querySelector('#filepath').textContent = `ch${document.URL.split('/ch')[1]}index.html`;
+  </script>
 
-<script type="text/javascript">
+  <script type="text/javascript">
 
     let count = 0;
 
@@ -104,20 +104,16 @@
       counterSpan.textContent = count;
     };
     const handleUp = () => {
-      // TODO: 데이터 갱신
       count++;
-      // TODO: 화면 갱신
       const counterSpan = document.querySelector('#counter > span');
       counterSpan.textContent = count;
     };
     const handleReset = event => {
-      // TODO: 데이터 갱신
       count = 0;
-      // TODO: 화면 갱신
       const counterSpan = document.querySelector('#counter > span');
       counterSpan.textContent = count;
     };
-</script>
+  </script>
 
 </body>
 </html>
